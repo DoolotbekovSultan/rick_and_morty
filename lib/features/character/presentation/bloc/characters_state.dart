@@ -8,7 +8,11 @@ class CharactersLoading extends CharactersState {}
 
 class CharactersLoadedSuccess extends CharactersState {
   final List<Character> characters;
-  CharactersLoadedSuccess(this.characters);
+  final bool isLoadingMore;
+  CharactersLoadedSuccess({
+    required this.characters,
+    this.isLoadingMore = false,
+  });
 }
 
 class CharactersError extends CharactersState {

@@ -25,88 +25,90 @@ class CharacterItem extends StatelessWidget {
                       Image.asset("assets/images/no_character_image.jpeg"),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          character.name,
-                          style: TextStyle(
-                            color: AppColors.textPrimary,
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Container(
-                              width: 6,
-                              height: 6,
-                              decoration: BoxDecoration(
-                                color: {
-                                  "Alive": Colors.green,
-                                  "Dead": Colors.red,
-                                  "unknown": Colors.grey,
-                                }[character.status],
-                                shape: BoxShape.circle,
-                              ),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            character.name,
+                            style: TextStyle(
+                              color: AppColors.textPrimary,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
                             ),
-                            SizedBox(width: 4),
-                            Text(
-                              "${character.status} - ${character.species}",
-                              style: TextStyle(
-                                color: AppColors.textPrimary,
-                                fontSize: 8,
+                          ),
+                          Row(
+                            children: [
+                              Container(
+                                width: 6,
+                                height: 6,
+                                decoration: BoxDecoration(
+                                  color: {
+                                    "Alive": Colors.green,
+                                    "Dead": Colors.red,
+                                    "unknown": Colors.grey,
+                                  }[character.status],
+                                  shape: BoxShape.circle,
+                                ),
                               ),
+                              SizedBox(width: 4),
+                              Text(
+                                "${character.status} - ${character.species}",
+                                style: TextStyle(
+                                  color: AppColors.textPrimary,
+                                  fontSize: 8,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Last known location:",
+                            style: TextStyle(
+                              color: AppColors.textSecondary,
+                              fontSize: 8,
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Last known location:",
-                          style: TextStyle(
-                            color: AppColors.textSecondary,
-                            fontSize: 8,
                           ),
-                        ),
-                        Text(
-                          character.lastKnownLocation,
-                          style: TextStyle(
-                            color: AppColors.textPrimary,
-                            fontSize: 8,
+                          Text(
+                            character.lastKnownLocation,
+                            style: TextStyle(
+                              color: AppColors.textPrimary,
+                              fontSize: 8,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "First seen in:",
-                          style: TextStyle(
-                            color: AppColors.textSecondary,
-                            fontSize: 8,
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "First seen in:",
+                            style: TextStyle(
+                              color: AppColors.textSecondary,
+                              fontSize: 8,
+                            ),
                           ),
-                        ),
-                        Text(
-                          character.firstSeenIn,
-                          style: TextStyle(
-                            color: AppColors.textPrimary,
-                            fontSize: 8,
+                          Text(
+                            character.firstSeenIn,
+                            style: TextStyle(
+                              color: AppColors.textPrimary,
+                              fontSize: 8,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],

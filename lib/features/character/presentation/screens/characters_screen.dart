@@ -31,7 +31,6 @@ class _CharactersScreenState extends State<CharactersScreen> {
   void _onScroll() {
     if (_scrollController.position.pixels >=
         _scrollController.position.maxScrollExtent - 200) {
-      print("Scrolled");
       sl<CharactersBloc>().add(LoadNextPageEvent());
     }
   }
@@ -48,9 +47,14 @@ class _CharactersScreenState extends State<CharactersScreen> {
             } else if (state is CharactersLoadedSuccess) {
               return ListView.builder(
                 controller: _scrollController,
-                itemCount: state.characters.length,
+                itemCount:
+                    state.characters.length + (state.isLoadingMore ? 1 : 0),
                 itemBuilder: (context, index) {
-                  return CharacterItem(character: state.characters[index]);
+                  if (index < state.characters.length) {
+                    return CharacterItem(character: state.characters[index]);
+                  } else {
+                    return Center(child: CircularProgressIndicator());
+                  }
                 },
               );
             } else if (state is CharactersError) {
