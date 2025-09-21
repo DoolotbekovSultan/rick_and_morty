@@ -14,4 +14,6 @@ class Character {
     required this.lastKnownLocation,
     required this.firstSeenIn,
   });
+
+  void operator [](String other) {}
 }
